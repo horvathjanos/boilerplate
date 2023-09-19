@@ -4,3 +4,4 @@ Feature: Test Scenario
 
   Scenario: Open the App
     Given I go to the App
+

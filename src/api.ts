@@ -8,11 +8,6 @@ export enum STATUS_CODE {
     NOT_FOUND = 404,
 }
 
-export type Item = {
-    id: number;
-    title: string;
-};
-
 export type Error = {
     message: string;
 };
@@ -49,31 +44,6 @@ const ITEMS = [
 
 app.get('/items', (_req: express.Request, res: express.Response) => {
     res.send(ITEMS);
-});
-
-app.post('/items', (req: express.Request, res: express.Response) => {
-    const newTitle = req.body.title;
-    const newId = String(ITEMS.length + 1);
-    ITEMS.push({ id: newId, title: newTitle });
-
-    res.json(ITEMS);
-    if (res.headersSent !== true) {
-        res.sendStatus(STATUS_CODE.OK);
-    }
-});
-
-app.delete('/items/:id', (req: express.Request, res: express.Response) => {
-    const { id } = req.params;
-    const itemIndex = ITEMS.findIndex((item) => {
-        return item.id === id;
-    });
-
-    ITEMS.splice(itemIndex, 1);
-
-    res.json(ITEMS);
-    if (res.headersSent !== true) {
-        res.sendStatus(STATUS_CODE.OK);
-    }
 });
 
 // eslint-disable-next-line no-console
