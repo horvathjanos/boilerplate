@@ -42,14 +42,6 @@ module.exports = {
             },
         ],
         'no-console': 'error',
-        'no-restricted-syntax': [
-            'error',
-            {
-                selector:
-                    "CallExpression[callee.object.name='console'][callee.property.name=/^(.*)$/]",
-                message: 'Use @luna/logger instead',
-            },
-        ],
         // Import overrides
         'import/no-cycle': 'off',
         'import/prefer-default-export': 'off',
@@ -92,23 +84,6 @@ module.exports = {
             'error',
             {
                 noUselessIndex: true,
-            },
-        ],
-        'no-restricted-imports': [
-            'error',
-            {
-                paths: [
-                    {
-                        name: 'lodash',
-                        message: 'Use @luna/lodash instead.',
-                    },
-                ],
-                patterns: [
-                    {
-                        group: ['*react-router*'],
-                        message: 'Use @luna/router instead.',
-                    },
-                ],
             },
         ],
         // Custom rules
